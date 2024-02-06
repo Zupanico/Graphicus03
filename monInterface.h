@@ -45,6 +45,7 @@ public:
 	void formeDerniere();
 private:
 	void updateScreen();
+	void updateInformations();
 	Canevas caneva;
 };
 

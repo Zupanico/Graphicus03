@@ -33,6 +33,9 @@ public:
    bool desactiverCouche(int index);
    bool activerCoucheDerniere();
 
+   bool activerForme(int index);
+   bool activerFormeDerniere();
+
    bool ajouterForme(Forme *p_forme);
    bool retirerForme(int index);
    bool retirerFormeActive();
@@ -49,6 +52,13 @@ public:
 
    int getFormeActive();
    int getCoucheActive();
+   int getNbCouches();
+   int getNbFormes();
+   int getNbFormesCoucheActive();
+   double getAireCouche();
+   int getCoordXForme();
+   int getCoordYForme();
+   double getAireFormeActive();
 
 private:
      Vecteur<Couche*> couches;

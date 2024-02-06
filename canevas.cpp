@@ -76,6 +76,22 @@ bool Canevas::activerCoucheDerniere()
     return activerCouche(couches.getSize()-1);
 }
 
+bool Canevas::activerForme(int index)
+{
+    if (index >= couches.at(coucheActive)->getSize() || index < 0)
+    {
+        cout << "Erreur index invalide : s" << endl;
+        return false;
+    }
+    formeActive = index;
+    return true;
+}
+
+bool Canevas::activerFormeDerniere()
+{
+    return activerForme(couches.at(coucheActive)->getSize() -1 );
+}
+
 bool Canevas::ajouterForme(Forme *p_forme)
 {  
    
@@ -94,12 +110,19 @@ bool Canevas::retirerForme(int index)
       cout << "Erreur index invalide : " << endl;
       return false;
    }
+   formeActive = 0;
    return true;
 }
 
 bool Canevas::retirerFormeActive()
 {
-    return retirerForme(formeActive);
+    if (couches.at(coucheActive)->getSize() != 0) {
+        return retirerForme(formeActive);
+    }
+    else {
+        cout << "Erreur index invalide : " << endl;
+        return false;
+    }
 }
 
 double Canevas::aire()
@@ -170,4 +193,52 @@ int Canevas::getFormeActive()
 int Canevas::getCoucheActive()
 {
     return coucheActive;
+}
+
+int Canevas::getNbCouches()
+{
+    return couches.getSize();
+}
+
+int Canevas::getNbFormes()
+{
+    int tot = 0;
+    for (int i = 0; i < couches.getSize(); i++)
+    {
+        tot += couches.at(i)->getSize();
+    }
+    return tot;
+}
+
+int Canevas::getNbFormesCoucheActive()
+{
+    return couches.at(coucheActive)->getSize();
+}
+
+double Canevas::getAireCouche()
+{
+    return couches.at(coucheActive)->aireTotale();
+}
+
+int Canevas::getCoordXForme()
+{
+    if (couches.at(coucheActive)->getSize() != 0) {
+        Coordonnee coordonnee = couches.at(coucheActive)->getForme(formeActive)->getAncrage();
+        return coordonnee.x;
+    }
+}
+
+int Canevas::getCoordYForme()
+{
+    if (couches.at(coucheActive)->getSize() != 0) {
+        Coordonnee coordonnee = couches.at(coucheActive)->getForme(formeActive)->getAncrage();
+        return coordonnee.y;
+    }
+}
+
+double Canevas::getAireFormeActive()
+{
+    if (couches.at(coucheActive)->getSize() != 0) {
+        return couches.at(coucheActive)->getForme(formeActive)->aire();
+    }
 }

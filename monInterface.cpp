@@ -165,10 +165,12 @@ void MonInterface::ajouterCarre(int x, int y, int cote)
 
 void MonInterface::modePileChange(bool mode)
 {
+
 }
 
 void MonInterface::retirerForme()
 {
+	
 	caneva.retirerFormeActive();
 	updateScreen();
 }
@@ -199,18 +201,23 @@ void MonInterface::coucheDerniere()
 
 void MonInterface::formePremiere()
 {
+	caneva.activerForme(0);
+	updateScreen();
 }
 
 void MonInterface::formePrecedente()
 {
+	caneva.activerForme(caneva.getFormeActive() - 1);
 }
 
 void MonInterface::formeSuivante()
 {
+	caneva.activerForme(caneva.getFormeActive() + 1);
 }
 
 void MonInterface::formeDerniere()
 {
+	caneva.activerFormeDerniere();
 }
 
 void MonInterface::updateScreen()
@@ -220,4 +227,23 @@ void MonInterface::updateScreen()
 	string str = stream.str();
 	const char* chr = str.c_str();
 	dessiner(chr);
+	updateInformations();
+}
+
+void MonInterface::updateInformations()
+{
+	Informations info;
+
+	info.nbCouches = caneva.getNbCouches();
+	info.nbFormesCanevas = caneva.getNbFormes();
+	info.coucheActive = caneva.getCoucheActive();
+	info.aireCanevas = caneva.aire();
+	info.nbFormesCouche = caneva.getNbFormesCoucheActive();
+	info.aireCouche = caneva.getAireCouche();
+	info.formeActive = caneva.getFormeActive();
+	info.coordX = caneva.getCoordXForme();
+	info.coordY = caneva.getCoordYForme();
+	info.aireForme = caneva.getAireFormeActive();
+
+	setInformations(info);
 }
