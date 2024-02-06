@@ -31,5 +31,5 @@ void Carre::setCote(int c)
 
 void Carre::afficher(ostream &s)
 {
-    s << "Carre (x=" << ancrage.x << ", y=" << ancrage.y << ", c=" << cote << ", aire=" << aire() << ")" << std::endl;
+    s << "K " << ancrage.x << " " << ancrage.y << " " << cote << std::endl;
 }

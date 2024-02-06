@@ -86,17 +86,17 @@ string Couche::getEtat()
 {
     if (etat == 'A')
     {
-        return "active";
+        return "a";
     }
     else if (etat == 'I')
     {
-        return "initialise";
+        return "i";
     }
     else if (etat == 'N')
     {
-        return "inactive";
+        return "x";
     }
-    return "erreur";
+    return "e";
 }
 
 bool Couche::ChangementEtat(char e)
@@ -151,4 +151,9 @@ void Couche::viderCouche()
 {
     v.clear();
     etat = 'I';
+}
+
+int Couche::getSize()
+{
+    return v.getSize();
 }

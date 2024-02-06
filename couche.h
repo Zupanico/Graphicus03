@@ -44,7 +44,7 @@ public:
 
     //Vider
     void viderCouche();
-
+    int getSize();
 protected:
     char etat = 'I'; //I = Initialisé, A = Active et N = non active
     Vecteur<Forme*> v;
