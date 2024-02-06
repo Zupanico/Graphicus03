@@ -5,50 +5,42 @@
  * Description: Declaration de la classe vecteur
  ********/
 
-#ifndef VECTEUR_H
-#define VECTEUR_H
+#ifndef _VECTEUR_H
+#define _VECTEUR_H
 
-
-#include "iostream"
-
-using namespace std;
-template <typename T> class Vecteur {
-    // addresse du pointeur
-    T* tab;
-
-    // Capacite du vecteur
-    int capacite;
-
-    // Taille du vecteur
-    int taille;
-
+template <typename T>
+class Node {
 public:
-    // Constructeur
-    Vecteur();
+    T data;
+    Node* next;
 
-    // Destructeur
-    ~Vecteur();
-
-    // Inserer
-    int inserer(T valeur);
-    int inserer(T valeur, int index);
-    int doublerCapacite();
-
-    // Retrait
-    T retrait(int i);
-
-    // Getteur
-    T getValeur(int i);
-    bool estVide();
-    int getTaille();
-    int getCapacite();
-
-    // Afficher
-    void afficher(ostream &s);
-
-    // Vider
-    void vider();
+    Node(const T& newData) : data(newData), next(nullptr) {}
 };
 
-#include "vecteur.cpp"
-#endif
+template <typename T>
+class Vecteur {
+private:
+    Node<T>* head;
+    int size;
+
+public:
+    Vecteur();
+
+    ~Vecteur();
+
+    void push_back(const T& value);
+
+    T& at(int index);
+
+    int getSize() const;
+
+    bool isEmpty() const;
+
+    void clear();
+
+    T& removeAt(int index);
+
+    void append(const T& value);
+};
+
+#endif // _VECTOR_H

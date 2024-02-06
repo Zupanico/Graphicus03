@@ -6,207 +6,113 @@
  ********/
 #ifndef VECTEUR_CPP
 #define VECTEUR_CPP
-// #include "vecteur.h"
+#include "vecteur.h"
+#include <stdexcept>
 
 template <typename T>
-inline Vecteur<T>::Vecteur()
-{
-    tab = new T[1];
-    capacite = 2;
-    taille = 0;
+Vecteur<T>::Vecteur() : head(nullptr), size(0) {}
+
+template <typename T>
+Vecteur<T>::~Vecteur() {
+    clear();
 }
 
 template <typename T>
-Vecteur<T>::~Vecteur()
-{
-    delete[] tab;
+void Vecteur<T>::push_back(const T& value) {
+    Node<T>* newNode = new Node<T>(value);
+
+    if (head == nullptr) {
+        head = newNode;
+    } else {
+        Node<T>* current = head;
+        while (current->next != nullptr) {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
+
+    size++;
 }
 
 template <typename T>
-int Vecteur<T>::inserer(T valeur)
-{
- 
-    
-    try
-    {
-        // regarde si taille == capacite
-        if (taille == capacite)
-        {
-            doublerCapacite();
+T& Vecteur<T>::at(int index) {
+    if (index >= size || head == nullptr) {
+        throw std::out_of_range("Index out of bounds");
+    }
+
+    Node<T>* current = head;
+    for (size_t i = 0; i < index; i++) {
+        if (current == nullptr) {
+            throw std::out_of_range("Index out of bounds");
+        }
+        current = current->next;
+    }
+
+    return current->data;
+
+}
+
+template <typename T>
+int Vecteur<T>::getSize() const {
+    return size;
+}
+
+template <typename T>
+bool Vecteur<T>::isEmpty() const {
+    return size == 0;
+}
+
+template <typename T>
+void Vecteur<T>::clear() {
+    while (head != nullptr) {
+        Node<T>* temp = head;
+        head = head->next;
+        delete temp;
+    }
+    size = 0;
+}
+
+template <typename T>
+T& Vecteur<T>::removeAt(int index) {
+    if (index >= size || head == nullptr) {
+        throw std::out_of_range("Index out of bounds");
+    }
+
+    if (index == 0) {
+        Node<T>* temp = head;
+        head = head->next;
+        size--;
+        return temp->data;
+    } else {
+        Node<T>* current = head;
+        for (int i = 0; i < index - 1; ++i) {
+            current = current->next;
         }
 
-        // insere la valeur
-        tab[taille] = valeur;
-        
-
-        // augemente la taille
-        taille++;
+        Node<T>* temp = current->next;
+        current->next = temp->next;
+        size--;
+        return temp->data;
     }
 
-    catch (...)
-    {
-       
-        // retourne un code d'erreur 1
-        return 1;
-    }
-    
-    // Sans erreur, retourne 0
-    return 0;
+
 }
 
 template <typename T>
-int Vecteur<T>::inserer(T valeur, int index)
-{
-    
-    try
-    {
-        if (index == capacite)
-        {
-            inserer(valeur);
+void Vecteur<T>::append(const T& value) {
+    Node<T>* newNode = new Node<T>(value);
+
+    if (head == nullptr) {
+        head = newNode;
+    } else {
+        Node<T>* current = head;
+        while (current->next != nullptr) {
+            current = current->next;
         }
-        else
-        {
-            tab[index] = valeur;
-        }
+        current->next = newNode;
     }
 
-    catch (...)
-    {
-        // retourne un code d'erreur 1
-        return 1;
-    }
-
-    // Sans erreur, retourne 0
-    return 0;
-}
-
-template <typename T>
-int Vecteur<T>::doublerCapacite()
-{
-    try
-    {
-        // tableau temporaire avec double capacite
-        T *temp = new T[2 * capacite];
-
-        // copie des elements dans le nouveau tableau
-        for (int i = 0; i < capacite; i++)
-        {
-            temp[i] = tab[i];
-        }
-
-        // supprime le tableau
-        delete[] tab;
-
-        // double la capacite APRES avoir copie les valeurs
-        capacite *= 2;
-
-        // remets les valeurs originales
-        tab = temp;
-    }
-
-    catch (...)
-    {
-        // retourne un code d'erreur 1
-        return 1;
-    }
-
-    // Sans erreur, retourne 0
-    return 0;
-}
-
-template <typename T>
-T Vecteur<T>::retrait(int index)
-{
-    
-    T ptrRetrait;
-    try
-    {
-        // conserve le prt qui est retrait
-
-        ptrRetrait = tab[index];
-        
-        
-        // copie les éléments
-        for (int i = index; i < taille; i++)
-        {
-            // copie le prochain element pour deplacer le tableau
-            tab[i] = tab[i + 1];
-        }
-
-        // reduit la taille
-        taille--;
-    }
-    catch (...)
-    {
-        // retourne un code d'erreur 1
-        //return 1;
-    }
-
-    // Sans erreur, retourne le pointeur
-   
-    return ptrRetrait;
-}
-
-template <typename T>
-T Vecteur<T>::getValeur(int i)
-{   
-    try
-    { // retourne la valeur à l'index
-        return tab[i];
-    }
-    catch (...)
-    {
-        cout << "Erreur ne peut pas prendre la valeur : ";
-        return 0;
-    }
-}
-
-template <typename T>
-bool Vecteur<T>::estVide()
-{
-    if (taille == 0)
-    { // si la taille est egale a 0 -> il est vide, retourne vrai
-        return true;
-    }
-    else
-    { // si le vecteur n'est pas vide, retourne faux
-        return false;
-    }
-}
-
-template <typename T>
-int Vecteur<T>::getTaille()
-{
-    return taille;
-}
-
-template <typename T>
-int Vecteur<T>::getCapacite()
-{
-    return capacite;
-}
-
-template <typename T>
-void Vecteur<T>::afficher(ostream &s)
-{
-    for (int i = 0; i < taille; i++)
-    {
-        // affiche chaque element du vecteur
-        s << tab[i] << endl;
-    }
-}
-
-template <typename T>
-void Vecteur<T>::vider()
-{   
-    // supprime le tableau
-    delete[] tab;
-    // remets les valeurs par defaut
-    capacite = 2;
-    taille = 0;
-    // création du taleau vide
-    tab = new T[capacite];
-    
+    size++;
 }
 
 #endif
