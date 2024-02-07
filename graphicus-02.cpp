@@ -8,16 +8,15 @@
  *    fichier fait partie de la distribution de Graphicus.
 ********/
 #include "tests.h"
-#include "monInterface.h""
+#include <QApplication>
+#include "monInterface.h"
 
 using namespace std;
 
-int main()
+int main(int argc, char** argv)
 {
-   Tests tests;
-   //tests.tests_unitaires_vecteur();
-   //tests.tests_unitaires_couche();
-    tests.tests_application();
-   return 0;
+	QApplication app(argc, argv);
+	MonInterface gui("Graphicus-03");
+	return app.exec();
 }
 

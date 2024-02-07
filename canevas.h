@@ -13,8 +13,10 @@
 #include <iostream>
 #include "forme.h"
 #include "couche.h"
-
-const int MAX_COUCHES = 5; 
+#include "vecteur.h"
+#include "cercle.h"
+#include "carre.h"
+#include "rectangle.h"
 
 using namespace std;
 
@@ -29,17 +31,39 @@ public:
    
    bool activerCouche(int index);
    bool desactiverCouche(int index);
-   
+   bool activerCoucheDerniere();
+
+   bool activerForme(int index);
+   bool activerFormeDerniere();
+
    bool ajouterForme(Forme *p_forme);
    bool retirerForme(int index);
-   
+   bool retirerFormeActive();
+
    double aire();
    bool translater(int deltaX, int deltaY);
    void afficher(ostream & s);
 
+   void ajouterCouche(string);
+   void ajouterCouche();
+   void supprimerCouche(int);
+   void supprimerCoucheActive();
+ 
+
+   int getFormeActive();
+   int getCoucheActive();
+   int getNbCouches();
+   int getNbFormes();
+   int getNbFormesCoucheActive();
+   double getAireCouche();
+   int getCoordXForme();
+   int getCoordYForme();
+   double getAireFormeActive();
+
 private:
-     Couche couches[MAX_COUCHES];
+     Vecteur<Couche*> couches;
      int coucheActive = 0;
+     int formeActive = 0;
 };
 
 #endif
