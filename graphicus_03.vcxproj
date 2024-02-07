@@ -11,11 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C3611966-F546-3D69-9E40-7B2170537A91}</ProjectGuid>
+    <ProjectGuid>{945D6195-B1B8-3589-9443-6EA7C01093FA}</ProjectGuid>
     <RootNamespace>graphicus_03</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
-    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformMinVersion>10.0.22000.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="Configuration">
@@ -58,7 +56,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;../GraphicusGUI;C:\Qt\6.6.1\msvc2019_64\include;C:\Qt\6.6.1\msvc2019_64\include\QtWidgets;C:\Qt\6.6.1\msvc2019_64\include\QtGui;C:\Qt\6.6.1\msvc2019_64\include\QtCore;debug;/include;C:\Qt\6.6.1\msvc2019_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;GraphicusGUI;C:\Qt\6.6.1\msvc2019_64\include;C:\Qt\6.6.1\msvc2019_64\include\QtWidgets;C:\Qt\6.6.1\msvc2019_64\include\QtGui;C:\Qt\6.6.1\msvc2019_64\include\QtCore;debug;/include;C:\Qt\6.6.1\msvc2019_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -utf-8 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -77,7 +75,7 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>C:\Users\merci\OneDrive\Documents\_uni\S2\APP3\Graphicus-03\Graphicus-02\GraphicusGUI\graphicusGUI.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Widgetsd.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Guid.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GraphicusGUI\graphicusGUI.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Widgetsd.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Guid.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -98,7 +96,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;../GraphicusGUI;C:\Qt\6.6.1\msvc2019_64\include;C:\Qt\6.6.1\msvc2019_64\include\QtWidgets;C:\Qt\6.6.1\msvc2019_64\include\QtGui;C:\Qt\6.6.1\msvc2019_64\include\QtCore;release;/include;C:\Qt\6.6.1\msvc2019_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;GraphicusGUI;C:\Qt\6.6.1\msvc2019_64\include;C:\Qt\6.6.1\msvc2019_64\include\QtWidgets;C:\Qt\6.6.1\msvc2019_64\include\QtGui;C:\Qt\6.6.1\msvc2019_64\include\QtCore;release;/include;C:\Qt\6.6.1\msvc2019_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -utf-8 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -118,7 +116,7 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>C:\Users\merci\OneDrive\Documents\_uni\S2\APP3\Graphicus-03\Graphicus-02\GraphicusGUI\graphicusGUI.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Widgets.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Gui.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GraphicusGUI\graphicusGUI.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Widgets.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Gui.lib;C:\Qt\6.6.1\msvc2019_64\lib\Qt6Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>&quot;/MANIFESTDEPENDENCY:type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos; processorArchitecture=&apos;*&apos;&quot; %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
