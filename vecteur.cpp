@@ -17,22 +17,6 @@ Vecteur<T>::~Vecteur() {
     clear();
 }
 
-template <typename T>
-void Vecteur<T>::push_back(const T& value) {
-    Node<T>* newNode = new Node<T>(value);
-
-    if (head == nullptr) {
-        head = newNode;
-    } else {
-        Node<T>* current = head;
-        while (current->next != nullptr) {
-            current = current->next;
-        }
-        current->next = newNode;
-    }
-
-    size++;
-}
 
 template <typename T>
 T& Vecteur<T>::at(int index) {

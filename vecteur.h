@@ -28,8 +28,6 @@ public:
 
     ~Vecteur();
 
-    void push_back(const T& value);
-
     T& at(int index);
 
     int getSize() const;

@@ -42,7 +42,7 @@
     <ClCompile Include="forme.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graphicus-02.cpp">
+    <ClCompile Include="graphicus-03.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="monInterface.cpp">
