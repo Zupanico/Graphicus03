@@ -1,6 +1,6 @@
 /********
 * Fichier: monInterface.cpp
-* Auteurs: C.-A. Brunet
+* Auteurs: Mathieu Mercier, Nicolas Garant
 * Date: 10 janvier 2024
 * Description: Voir fichier d'entête pour informations.
 *
